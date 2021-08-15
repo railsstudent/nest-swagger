@@ -1,4 +1,4 @@
-import { Task } from './task.interface'
+import { Task } from '../entities'
 
 export interface DeleteResult {
   count: number

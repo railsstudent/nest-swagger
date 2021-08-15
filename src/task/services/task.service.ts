@@ -1,7 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
-import { DeleteResult, Task } from '../interfaces'
+import { DeleteResult } from '../interfaces'
 import { v4 } from 'uuid'
 import { CreateTaskDto, UpdateTaskDto } from '../dtos'
+import { Task } from '../entities'
 
 @Injectable()
 export class TaskService {

@@ -1,9 +1,10 @@
 import { UpdateTaskDto } from './dtos/update-task.dto'
 import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Post, Put } from '@nestjs/common'
-import { ApiTags } from '@nestjs/swagger'
+import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger'
 import { CreateTaskDto } from './dtos'
-import { Task, DeleteResult } from './interfaces'
+import { DeleteResult } from './interfaces'
 import { TaskService } from './services'
+import { Task } from './entities'
 
 @ApiTags('Task')
 @Controller('task')
@@ -16,6 +17,7 @@ export class TaskController {
   }
 
   @Get(':id')
+  @ApiBadRequestResponse({ description: 'Task not found' })
   getTask(@Param('id', ParseUUIDPipe) id: string): Promise<Task> {
     return this.service.findById(id)
   }
