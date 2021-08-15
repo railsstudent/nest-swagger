@@ -6,7 +6,7 @@
 
 ## Description
 
-Create Swagger documentation to descript Task API.
+Create Swagger documentation to describe Task API.
 
 ## URL
 ```
