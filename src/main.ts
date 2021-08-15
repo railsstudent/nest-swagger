@@ -30,6 +30,7 @@ async function bootstrap() {
     .setTitle('Swagger Task example')
     .setDescription('The task API description')
     .setVersion(version)
+    .addBearerAuth()
     .build()
   const document = SwaggerModule.createDocument(app, config)
   SwaggerModule.setup('api', app, document)
