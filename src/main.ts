@@ -25,10 +25,12 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService)
   const version = configService.get<string>('API_VERSION', '1.0')
+  const title = configService.get<string>('SWAGGER_TITLE', '')
+  const description = configService.get<string>('SWAGGER_DESCRIPITON', '')
 
   const config = new DocumentBuilder()
-    .setTitle('Swagger Task example')
-    .setDescription('The task API description')
+    .setTitle(title)
+    .setDescription(description)
     .setVersion(version)
     .addBearerAuth()
     .build()

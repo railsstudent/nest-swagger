@@ -1,8 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
-import { DeleteResult } from '../interfaces'
 import { v4 } from 'uuid'
 import { CreateTaskDto, UpdateTaskDto } from '../dtos'
-import { Task } from '../entities'
+import { DeleteResult, Task } from '../entities'
 
 @Injectable()
 export class TaskService {
@@ -39,10 +38,11 @@ export class TaskService {
   deleteById(id: string): Promise<DeleteResult> {
     const task = this.tasks.find((task) => task.id === id)
     this.tasks = this.tasks.filter((task) => task.id !== id)
-    return Promise.resolve({
+    const deletedResult: DeleteResult = {
       count: task ? 1 : 0,
       task,
-    })
+    }
+    return Promise.resolve(deletedResult)
   }
 
   updateTask(id: string, dto: UpdateTaskDto): Promise<Task> {

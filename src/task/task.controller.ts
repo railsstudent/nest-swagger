@@ -2,9 +2,8 @@ import { UpdateTaskDto } from './dtos/update-task.dto'
 import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Post, Put } from '@nestjs/common'
 import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger'
 import { CreateTaskDto } from './dtos'
-import { DeleteResult } from './interfaces'
 import { TaskService } from './services'
-import { Task } from './entities'
+import { DeleteResult, Task } from './entities'
 
 @ApiTags('Task')
 @Controller('task')
